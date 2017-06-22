@@ -27,7 +27,7 @@ SOFTWARE.
 
 #include <boost/lexical_cast.hpp>
 
-#include "statsd.hpp"
+#include <quitsies/stats/statsd.hpp>
 
 namespace detail {
 	const std::string type_counter   = "%s:%d|c";

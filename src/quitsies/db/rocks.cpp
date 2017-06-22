@@ -27,7 +27,7 @@ SOFTWARE.
 
 #include <boost/filesystem.hpp>
 
-#include "rocks.hpp"
+#include <quitsies/db/rocks.hpp>
 
 namespace quitsies { namespace db {
 
@@ -293,7 +293,8 @@ rocks::open(log::logger log, stats::aggregator_ptr stats)
 }
 
 void
-rocks::get_folder_size(std::string root, stats::uvalue_t & file_size) {
+rocks::get_folder_size(std::string root, stats::uvalue_t & file_size)
+{
 	boost::filesystem::path folder_path(root);
 
 	if ( boost::filesystem::exists(folder_path) ) {

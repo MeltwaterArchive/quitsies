@@ -33,7 +33,7 @@ SOFTWARE.
 #include <quitsies/stats/aggregator.hpp>
 #include <quitsies/stats/null_aggregator.hpp>
 
-#include "store.hpp"
+#include <quitsies/db/store.hpp>
 
 namespace quitsies { namespace db {
 

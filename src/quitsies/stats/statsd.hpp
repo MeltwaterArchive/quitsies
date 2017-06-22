@@ -29,7 +29,7 @@ SOFTWARE.
 
 #include <boost/asio.hpp>
 
-#include "aggregator.hpp"
+#include <quitsies/stats/aggregator.hpp>
 
 namespace quitsies { namespace stats {
 

@@ -30,8 +30,8 @@ SOFTWARE.
 #include <thread>
 #include <atomic>
 
-#include "aggregator.hpp"
-#include "statsd.hpp"
+#include <quitsies/stats/aggregator.hpp>
+#include <quitsies/stats/statsd.hpp>
 
 namespace quitsies { namespace stats {
 

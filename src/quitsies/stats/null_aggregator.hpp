@@ -25,7 +25,7 @@ SOFTWARE.
 #ifndef NULL_AGGREGATOR
 #define NULL_AGGREGATOR
 
-#include "aggregator.hpp"
+#include <quitsies/stats/aggregator.hpp>
 
 namespace quitsies { namespace stats {
 
