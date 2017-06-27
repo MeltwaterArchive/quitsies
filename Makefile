@@ -3,6 +3,7 @@ BINNAME= quitsies
 CC    = g++
 #CFLAGS= -std=c++11 -Wall -O0 -g
 CFLAGS= -std=c++11 -Wall -O2
+TFLAGS= -DCATCH_CONFIG_MAIN
 
 INCLUDES= -I./src
 LFLAGS  =
@@ -46,7 +47,7 @@ test: $(TESTS)
 
 %_test: %.test.cpp $(OBJS)
 	@mkdir -p $(BUILDBIN)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(@:_test=.test.cpp) $(filter-out %/service.o, $(OBJS)) $(LFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(TFLAGS) $(INCLUDES) -o $@ $(@:_test=.test.cpp) $(filter-out %/service.o, $(OBJS)) $(LFLAGS) $(LIBS)
 
 clean:
 	$(RM) $(OBJS) $(TESTS) *~ $(MAIN)

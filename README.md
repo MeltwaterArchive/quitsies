@@ -99,16 +99,23 @@ data that isn't backed up.
 
 ## Development
 
-Dependencies:
+Build and test with [bazel](https://bazel.io):
+
+```sh
+bazel build quitsies
+bazel test quitsies-test
+```
+
+Or, pull the deps manually:
 
 - Served 1.4
 - RocksDB 5.2
 - Boost 1.58
 
-To build:
+And use the makefile:
 
-`make build`
-
-To install:
-
-`make install`
+```sh
+make build
+make test
+make install
+```

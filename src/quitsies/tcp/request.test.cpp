@@ -22,7 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#define CATCH_CONFIG_MAIN
 #include <test/catch.hpp>
 
 #include <quitsies/tcp/request.hpp>
