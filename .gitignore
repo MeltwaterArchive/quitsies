@@ -2,3 +2,5 @@ target
 
 *.o
 *_test
+
+bazel*
