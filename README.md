@@ -108,9 +108,9 @@ bazel test quitsies-test
 
 Or, pull the deps manually:
 
-- Served 1.4
-- RocksDB 5.2
-- Boost 1.58
+- [Served 1.4+](https://github.com/datasift/served)
+- [RocksDB 5.4.6+](https://github.com/facebook/rocksdb/releases)
+- [Boost 1.58+](http://www.boost.org/)
 
 And use the makefile:
 
