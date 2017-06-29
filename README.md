@@ -102,8 +102,8 @@ data that isn't backed up.
 Build and test with [bazel](https://bazel.io):
 
 ```sh
+bazel test ...
 bazel build quitsies
-bazel test quitsies-test
 ```
 
 Or, pull the deps manually:
