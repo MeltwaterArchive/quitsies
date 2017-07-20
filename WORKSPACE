@@ -13,7 +13,7 @@ bind(
 )
 bind(
     name = "snappy_config",
-	actual = "//third_party/snappy:config"
+    actual = "//third_party/snappy:config"
 )
 
 http_archive(
@@ -40,14 +40,14 @@ bind(
 )
 bind(
     name = "glog_config",
-	actual = "//third_party/glog:config",
+    actual = "//third_party/glog:config",
 )
 
 new_git_repository(
     name = "libunwind_git",
     remote = "git://git.sv.gnu.org/libunwind.git",
     tag = "v1.1", # Note: update the version in BUILD file
-	build_file = "//:third_party/libunwind.BUILD",
+    build_file = "//:third_party/libunwind.BUILD",
 )
 bind(
     name = "libunwind",
@@ -83,7 +83,7 @@ bind(
 )
 bind(
     name = "jemalloc_config",
-	actual = "//third_party/jemalloc:config"
+    actual = "//third_party/jemalloc:config"
 )
 
 new_http_archive(
@@ -110,15 +110,6 @@ bind(
 )
 
 git_repository(
-    name = "com_github_nelhage_boost",
-    remote = "https://github.com/nelhage/rules_boost.git",
-    commit = "ead0110ff90d5d90d2eb67e7e78f34f42d8486a1",
-)
-
-load("@com_github_nelhage_boost//:boost/boost.bzl", "boost_deps")
-boost_deps()
-
-git_repository(
     name = "com_googlesource_code_re2",
     remote = "https://github.com/google/re2.git",
     commit = "22fc950c75d238f8b2dcbc43d8a60573cad2b8d7",
@@ -128,11 +119,17 @@ bind(
     actual = "@com_googlesource_code_re2//:re2",
 )
 
-http_archive(
+git_repository(
     name = "com_github_datasift_served",
-    url = "https://github.com/datasift/served/archive/777ee72.tar.gz",
-    strip_prefix = "served-777ee72399cfd6190a307fa21de2dd76794ce780",
+    remote = "https://github.com/datasift/served",
+    commit = "f6c958a7cb0c67b0350ad7b2251ec7146101012a",
+    init_submodules = 1,
 )
+#http_archive(
+    #name = "com_github_datasift_served",
+    #url = "https://github.com/datasift/served/archive/f6c958a7cb0c67b0350ad7b2251ec7146101012a.tar.gz",
+    #strip_prefix = "served-f6c958a7cb0c67b0350ad7b2251ec7146101012a",
+#)
 bind(
     name = "served",
     actual = "@com_github_datasift_served//:served",

@@ -5,16 +5,16 @@ exports_files(["LICENSE"])
 cc_binary(
     name = "quitsies",
     srcs = [ "src/service.cpp" ],
-	copts = [
-		"-I./src",
-	],
+    copts = [
+        "-I./src",
+    ],
     deps = [
         "//external:rocksdb",
-        "//external:served",
-        "@boost//:system",
-        "@boost//:filesystem",
-        "@boost//:asio",
+        "//third_party/boost:system",
+        "//third_party/boost:filesystem",
+        "//third_party/boost:asio",
         "//external:re2",
+        "//external:served",
         "//src/quitsies:options",
         "//src/quitsies/log:log",
         "//src/quitsies/db:db",
