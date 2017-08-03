@@ -30,8 +30,8 @@ SOFTWARE.
 
 namespace quitsies { namespace stats {
 
-typedef int64_t  value_t;
-typedef uint64_t uvalue_t;
+typedef intmax_t  value_t;
+typedef uintmax_t uvalue_t;
 
 class aggregator {
 public:

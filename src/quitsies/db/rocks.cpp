@@ -288,6 +288,7 @@ rocks::open(log::logger log, stats::aggregator_ptr stats)
 			get_folder_size(_path, folder_size);
 
 			_local_stats->gauge("rocksdb.db-size", folder_size);
+			_local_stats->gauge("rocksdb.db-size-mb", (folder_size/1000000));
 		});
 	}
 }

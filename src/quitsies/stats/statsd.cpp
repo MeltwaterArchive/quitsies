@@ -31,8 +31,8 @@ SOFTWARE.
 
 namespace detail {
 	const std::string type_counter   = "%s:%d|c";
-	const std::string type_timer     = "%s:%" PRIu64 "|ms";
-	const std::string type_gauge     = "%s:%" PRIu64 "|g";
+	const std::string type_timer     = "%s:%" PRIuMAX "|ms";
+	const std::string type_gauge     = "%s:%" PRIuMAX "|g";
 	const std::string type_set       = "%s:%d|s";
 }
 

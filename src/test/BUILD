@@ -10,6 +10,6 @@ cc_library(
         "catch.hpp",
     ],
     srcs = [
-        "catch.cpp",
+        "catch.test.cpp",
     ],
 )
