@@ -6,6 +6,7 @@ CFLAGS= -std=c++11 -Wall -O2
 
 INCLUDES= -I./src
 LFLAGS  =
+TFLAGS= -DCATCH_CONFIG_MAIN
 
 LIBS= \
 	-lserved \
@@ -23,7 +24,7 @@ PATHINSTBIN=$(DESTDIR)/$(BINPATH)
 MAIN= $(BUILDBIN)/$(BINNAME)
 
 ALL_SRCS =$(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp)
-SRCS     =$(filter-out %.test.cpp, $(ALL_SRCS))
+SRCS     =$(filter-out %.test.cpp src/test/catch.cpp, $(ALL_SRCS))
 OBJS     =$(SRCS:.cpp=.o)
 TEST_SRCS=$(filter %.test.cpp, $(ALL_SRCS))
 TESTS    =$(TEST_SRCS:.test.cpp=_test)
@@ -46,7 +47,7 @@ test: $(TESTS)
 
 %_test: %.test.cpp $(OBJS)
 	@mkdir -p $(BUILDBIN)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(@:_test=.test.cpp) $(filter-out %/service.o, $(OBJS)) $(LFLAGS) $(LIBS)
+	$(CC) $(TFLAGS) $(CFLAGS) $(INCLUDES) -o $@ $(@:_test=.test.cpp) $(filter-out %/service.o, $(OBJS)) $(LFLAGS) $(LIBS)
 
 clean:
 	$(RM) $(OBJS) $(TESTS) *~ $(MAIN)
