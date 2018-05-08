@@ -35,6 +35,8 @@ SOFTWARE.
 
 #include <quitsies/db/store.hpp>
 
+#include <mutex>
+
 namespace quitsies { namespace db {
 
 class rocks : public store {
@@ -56,6 +58,8 @@ class rocks : public store {
 	std::shared_ptr<rocksdb::Statistics> _rocks_stats;
 
 	log::logger _log;
+
+	std::mutex _db_mutex;
 
 public:
 	rocks()
@@ -96,6 +100,14 @@ public:
 
 	// Store a key value pair.
 	status put(std::string const & key, std::string const & value);
+
+	void lock() {
+		_db_mutex.lock();
+	}
+
+	void unlock() {
+		_db_mutex.unlock();
+	}
 
 private:
 	void get_folder_size(std::string path, stats::uvalue_t & size);

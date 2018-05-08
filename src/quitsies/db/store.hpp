@@ -67,6 +67,9 @@ public:
 
 	// Store a key value pair.
 	virtual status put(std::string const & key, std::string const & value) = 0;
+
+	virtual void lock() = 0;
+	virtual void unlock() = 0;
 };
 
 typedef std::shared_ptr<store> store_ptr;

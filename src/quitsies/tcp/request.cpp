@@ -131,14 +131,31 @@ request::prepare_response() {
 			break;
 		case command_type::ADD:
 			{
+				_db->lock();
 				std::string value;
 				auto status = _db->get(_keys[0], &value);
-				if ( status.ok() ) {
+				if ( !status.ok() ) {
+					if ( status.is_not_found() ) {
+						status = _db->put(_keys[0], _buffer.str());
+						if ( status.ok() ) {
+							ss << "STORED\r\n";
+						} else {
+							ss << "ERROR ";
+							ss << status.to_string();
+							ss << "\r\n";
+						}
+					} else {
+						ss << "ERROR ";
+						ss << status.to_string();
+						ss << "\r\n";
+					}
+				} else {
 					// Add is only applied if the key does not exist
 					ss << "NOT_STORED\r\n";
-					break;
 				}
+				_db->unlock();
 			}
+			break;
 		case command_type::SET:
 			{
 				auto status = _db->put(_keys[0], _buffer.str());
