@@ -21,7 +21,7 @@ cc_library(
         "//src/quitsies/db:db",
         "//src/quitsies/log:log",
         "//src/quitsies/stats:stats",
-        "//third_party/boost:asio",
+        "@boost//:asio",
         "//external:served",
     ],
 )
@@ -41,7 +41,7 @@ cc_test(
         "//src/quitsies/log:log",
         "//src/test:test",
         "//src/quitsies/stats:stats",
-        "//third_party/boost:asio",
+        "@boost//:asio",
         "//external:served",
     ],
 )

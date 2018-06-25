@@ -16,7 +16,7 @@ cc_library(
         "statsd.hpp",
     ],
     deps = [
-        "//third_party/boost:asio",
-        "//third_party/boost:lexical_cast",
+        "@boost//:asio",
+        "@boost//:lexical_cast",
     ]
 )

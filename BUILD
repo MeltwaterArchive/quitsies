@@ -10,10 +10,9 @@ cc_binary(
     ],
     deps = [
         "//external:rocksdb",
-        "//third_party/boost:system",
-        "//third_party/boost:filesystem",
-        "//third_party/boost:asio",
-        "//external:re2",
+        "@boost//:system",
+        "@boost//:filesystem",
+        "@boost//:asio",
         "//external:served",
         "//src/quitsies:options",
         "//src/quitsies/log:log",

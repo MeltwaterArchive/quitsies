@@ -1,5 +1,13 @@
 workspace(name = "com_github_datasift_quitsies")
 
+git_repository(
+    name = "com_github_nelhage_rules_boost",
+    commit = "72ec09168e5c3a296f667b3d956a853ccd65c8ed",
+    remote = "https://github.com/nelhage/rules_boost",
+)
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+boost_deps()
+
 new_http_archive(
     name = "snappy_archive",
     url = "https://github.com/google/snappy/archive/ed3b7b2.tar.gz",
@@ -101,7 +109,7 @@ bind(
 new_git_repository(
     name = "rocksdb_git",
     remote = "https://github.com/facebook/rocksdb.git",
-    tag = "v5.4.6",
+    tag = "v5.7.3",
     build_file = "//:third_party/rocksdb.BUILD",
 )
 bind(
@@ -109,27 +117,17 @@ bind(
     actual = "@rocksdb_git//:rocksdb",
 )
 
-git_repository(
-    name = "com_googlesource_code_re2",
-    remote = "https://github.com/google/re2.git",
-    commit = "22fc950c75d238f8b2dcbc43d8a60573cad2b8d7",
-)
-bind(
-    name = "re2",
-    actual = "@com_googlesource_code_re2//:re2",
-)
-
-git_repository(
-    name = "com_github_datasift_served",
-    remote = "https://github.com/datasift/served",
-    commit = "f6c958a7cb0c67b0350ad7b2251ec7146101012a",
-    init_submodules = 1,
-)
-#http_archive(
+#git_repository(
     #name = "com_github_datasift_served",
-    #url = "https://github.com/datasift/served/archive/f6c958a7cb0c67b0350ad7b2251ec7146101012a.tar.gz",
-    #strip_prefix = "served-f6c958a7cb0c67b0350ad7b2251ec7146101012a",
+    #remote = "https://github.com/datasift/served",
+    #commit = "59d3369c25c910f69dda295d5c009b24ec929236",
+    #init_submodules = 1,
 #)
+http_archive(
+    name = "com_github_datasift_served",
+    url = "https://github.com/datasift/served/archive/59d3369c25c910f69dda295d5c009b24ec929236.tar.gz",
+    strip_prefix = "served-59d3369c25c910f69dda295d5c009b24ec929236",
+)
 bind(
     name = "served",
     actual = "@com_github_datasift_served//:served",
