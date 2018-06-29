@@ -1,4 +1,4 @@
-workspace(name = "com_github_datasift_quitsies")
+workspace(name = "com_github_meltwater_quitsies")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
@@ -138,18 +138,12 @@ bind(
     actual = "@rocksdb_git//:rocksdb",
 )
 
-#git_repository(
-    #name = "com_github_datasift_served",
-    #remote = "https://github.com/datasift/served",
-    #commit = "59d3369c25c910f69dda295d5c009b24ec929236",
-    #init_submodules = 1,
-#)
 http_archive(
-    name = "com_github_datasift_served",
-    url = "https://github.com/datasift/served/archive/59d3369c25c910f69dda295d5c009b24ec929236.tar.gz",
-    strip_prefix = "served-59d3369c25c910f69dda295d5c009b24ec929236",
+    name = "com_github_meltwater_served",
+    url = "https://github.com/meltwater/served/archive/430d7129505f54cc0db6b6375977f08b8f2ba162.tar.gz",
+    strip_prefix = "served-430d7129505f54cc0db6b6375977f08b8f2ba162",
 )
 bind(
     name = "served",
-    actual = "@com_github_datasift_served//:served",
+    actual = "@com_github_meltwater_served//:served",
 )

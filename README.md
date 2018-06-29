@@ -108,7 +108,7 @@ bazel build quitsies
 
 Or, pull the deps manually:
 
-- [Served 1.4+](https://github.com/datasift/served)
+- [Served 1.4+](https://github.com/meltwater/served)
 - [RocksDB 5.4.6+](https://github.com/facebook/rocksdb/releases)
 - [Boost 1.58+](http://www.boost.org/)
 
