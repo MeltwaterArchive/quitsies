@@ -11,7 +11,7 @@ genrule(
     # `git rev-parse HEAD` returns the SHA, but it does not work in all the environments
     # when combined with bazel sandboxing
     cmd = "GIT_DIR=external/rocksdb_git/.git; " +
-        "GIT_SHA=$$(cat $$GIT_DIR/HEAD | cut -d \" \" -f 2 | xargs -I {} cat $$GIT_DIR/{}); " +
+        "GIT_SHA=$$(cat $$GIT_DIR/HEAD | cut -d \" \" -f 2 | xargs -I {} cat $$GIT_DIR/{} || echo 'v5.7.3'); " +
         "sed -e s/@@GIT_SHA@@/$$GIT_SHA/ -e s/@@GIT_DATE_TIME@@/$$(date +%F)/ " +
         "external/rocksdb_git/util/build_version.cc.in >> $(@)",
 )

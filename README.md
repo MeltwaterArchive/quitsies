@@ -97,11 +97,17 @@ quitsies with the `--db_restore_backup` flag. This will take the latest snapshot
 and use it to replace `<db_path>` entirely, so do not restore if there is live
 data that isn't backed up.
 
+## Build Docker
+
+``` sh
+docker build . -t meltwater/quitsies:latest
+```
+
 ## Development
 
 Build and test with [bazel](https://bazel.io):
 
-```sh
+``` sh
 bazel test ...
 bazel build quitsies
 ```
@@ -114,7 +120,7 @@ Or, pull the deps manually:
 
 And use the makefile:
 
-```sh
+``` sh
 make build
 make test
 make install
