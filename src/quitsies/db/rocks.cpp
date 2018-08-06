@@ -231,14 +231,6 @@ rocks::open(log::logger log, stats::aggregator_ptr stats)
 	if ( _ttl == 0 ) {
 		_ttl = -1; // 0 is interpretted by rocks as now.
 	}
-	if ( _ttl > 0 && _ttl < 604800 ) {
-		std::cout << "WARNING: You have a TTL set to less than 7 days,"
-			<< " this will flag all existing records older than 7 days for deletion."
-			<< std::endl << "Are you sure you wish to proceed? y/n" << std::endl;
-		if ( std::cin.peek() != 121 && std::cin.peek() != 89 ) {
-			throw std::runtime_error("Aborting");
-		}
-	}
 
 	// Configure DB.
 	rocksdb::ColumnFamilyOptions cf_options;
@@ -310,7 +302,7 @@ rocks::get_folder_size(std::string root, stats::uvalue_t & file_size)
 					get_folder_size(file_path.string(), file_size);
 				}
 			} catch(std::exception& e) {
-				_log->error("Failed to evaluate folder size for metrics: {}", e.what());
+				_log->debug("Failed to evaluate folder size for metrics: {}", e.what());
 			}
 		}
 	}
